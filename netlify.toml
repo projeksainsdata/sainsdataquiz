@@ -1,0 +1,12 @@
+[build]
+  command = "npx prisma generate && next build"
+  publish = "out"
+  functions = "netlify/functions"
+  environment = { NODE_ENV = "production" }
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@prisma/client"]
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
