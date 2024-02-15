@@ -11,12 +11,17 @@ import { prisma } from "@/lib/db";
 
 type Props = {};
 
+interface Topic {
+  topic: string;
+  count: number;
+}
+
 const HotTopicsCard = async (props: Props) => {
-  const topics = await prisma.topic_count.findMany({});
+  const topics = await prisma.topicCount.findMany({}); // Use topicCount instead of topic_count
   const formattedTopics = topics.map((topic) => {
     return {
-      text: topic.topic,
-      value: topic.count,
+      text: topic.topic, // Ensure 'topic' field exists in your model
+      value: topic.count, // Ensure 'count' field exists in your model
     };
   });
   return (
@@ -33,5 +38,6 @@ const HotTopicsCard = async (props: Props) => {
     </Card>
   );
 };
+
 
 export default HotTopicsCard;

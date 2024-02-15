@@ -26,7 +26,7 @@ export async function POST(req: Request, res: Response) {
         topic,
       },
     });
-    await prisma.topic_count.upsert({
+    await prisma.topicCount.upsert({
       where: {
         topic,
       },
@@ -129,11 +129,9 @@ export async function GET(req: Request, res: Response) {
     const url = new URL(req.url);
     const gameId = url.searchParams.get("gameId");
     if (!gameId) {
-      return NextResponse.json(
-        { error: "You must provide a game id." },
-        {
-          status: 400,
-        }
+      return new NextResponse(
+        JSON.stringify({ error: "You must provide a game id." }),
+        { status: 400 }
       );
     }
 
