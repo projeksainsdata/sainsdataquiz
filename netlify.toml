@@ -1,6 +1,6 @@
 [build]
 # Settings related to the build process will go here. For example:
- command = "npm run build" # The command to build your site
+ command = "npx prisma generate && next build" # The command to build your site
  publish = "public" # The directory to publish
 
 [http_service]
