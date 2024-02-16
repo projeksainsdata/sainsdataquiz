@@ -60,7 +60,7 @@ export async function strict_output(
       messages: [
         {
           role: 'system',
-          content: system_prompt + output_format_prompt + error_msg,
+          content: 'Bahasa Indonesia'+system_prompt + output_format_prompt + error_msg,
         },
         { role: 'user', content: user_prompt.toString() },
       ],
